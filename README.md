@@ -1,5 +1,16 @@
 # terraform-aws-openshift
 
+## OKD 3.10 support added
+
+I needed to adapt the inventory.template.cfg, install-from-bastion-sh to be able to deploy OKD 3.10.
+
+Note: you need to run "make opehsift" 2 times to get a somehow working installation.
+
+The issue ha been reported here:
+
+https://github.com/dwmkerr/terraform-aws-openshift/issues/64
+
+
 [![CircleCI](https://circleci.com/gh/dwmkerr/terraform-aws-openshift.svg?style=shield)](https://circleci.com/gh/dwmkerr/terraform-aws-openshift)
 
 This project shows you how to set up OpenShift Origin on AWS using Terraform. This the companion project to my article [Get up and running with OpenShift on AWS](http://www.dwmkerr.com/get-up-and-running-with-openshift-on-aws/).
