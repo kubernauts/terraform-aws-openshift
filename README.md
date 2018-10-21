@@ -6,7 +6,7 @@ I needed to adapt the inventory.template.cfg, install-from-bastion-sh to be able
 
 Note: you need to run "make opehsift" 2 times to get a somehow working installation.
 
-The issue ha been reported here:
+The issue has been reported here:
 
 https://github.com/dwmkerr/terraform-aws-openshift/issues/64
 
