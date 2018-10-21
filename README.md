@@ -4,7 +4,7 @@
 
 I needed to adapt the inventory.template.cfg, install-from-bastion-sh to be able to deploy OKD 3.10.
 
-Note: you need to run "make openhsift" 2 times to get a somehow working installation.
+Note: you need to run "make openshift" a second time to get a somehow working installation.
 
 The issue has been reported here:
 
