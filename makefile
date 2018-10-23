@@ -11,6 +11,7 @@ openshift:
 	ssh -A ec2-user@$$(terraform output bastion-public_dns) "ssh-keyscan -t rsa -H master.openshift.local >> ~/.ssh/known_hosts"
 	ssh -A ec2-user@$$(terraform output bastion-public_dns) "ssh-keyscan -t rsa -H node1.openshift.local >> ~/.ssh/known_hosts"
 	ssh -A ec2-user@$$(terraform output bastion-public_dns) "ssh-keyscan -t rsa -H node2.openshift.local >> ~/.ssh/known_hosts"
+	ssh -A ec2-user@$$(terraform output bastion-public_dns) "ssh-keyscan -t rsa -H node3.openshift.local >> ~/.ssh/known_hosts"
 
 	# Copy our inventory to the master and run the install script.
 	scp ./inventory.cfg ec2-user@$$(terraform output bastion-public_dns):~
@@ -20,9 +21,10 @@ openshift:
 	cat ./scripts/postinstall-master.sh | ssh -A ec2-user@$$(terraform output bastion-public_dns) ssh master.openshift.local
 	cat ./scripts/postinstall-node.sh | ssh -A ec2-user@$$(terraform output bastion-public_dns) ssh node1.openshift.local
 	cat ./scripts/postinstall-node.sh | ssh -A ec2-user@$$(terraform output bastion-public_dns) ssh node2.openshift.local
+	cat ./scripts/postinstall-node.sh | ssh -A ec2-user@$$(terraform output bastion-public_dns) ssh node3.openshift.local
 
 # Open the console.
-browse-openshift:
+console:
 	open $$(terraform output master-url)
 
 # SSH onto the master.
@@ -34,6 +36,8 @@ ssh-node1:
 	ssh -t -A ec2-user@$$(terraform output bastion-public_dns) ssh node1.openshift.local
 ssh-node2:
 	ssh -t -A ec2-user@$$(terraform output bastion-public_dns) ssh node2.openshift.local
+ssh-node3:
+	ssh -t -A ec2-user@$$(terraform output bastion-public_dns) ssh node3.openshift.local
 
 # Create sample services.
 sample:

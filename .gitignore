@@ -5,6 +5,7 @@ terraform.tfstate
 terraform.tfstate.backup
 
 # The generated inventory file.
+kube.config
 inventory.cfg
 *.lock.info
 .private.env

@@ -4,8 +4,8 @@
 # changes which would otherwise be overwritten by ansible.
 sudo su
 
-# Create an htpasswd file, we'll use htpasswd auth for OpenShift.
-htpasswd -cb /etc/origin/master/htpasswd admin 123
+# Create an htpasswd file, we'll use htpasswd auth for OpenShift. Change the pwd!
+htpasswd -cb /etc/origin/master/htpasswd admin mysecretpwd
 
 # Update the docker config to allow OpenShift's local insecure registry. Also
 # use json-file for logging, so our Splunk forwarder can eat the container logs.
